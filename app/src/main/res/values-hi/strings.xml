@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    <string name="app_name">AndroidLabs</string>-->
+    <string name="app_name">Android Labs</string>
 <!--    <string name="hello_message">Namaskar!</string>-->
 <!--    <stringswitch name="ButtonText">hum ek button hai</stringswitch>-->
     <string name="Switch">स्विच</string>
