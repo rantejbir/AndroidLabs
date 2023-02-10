@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">Android Labs</string>
-<!--    <string name="hello_message">Hello World!!</string>-->
-<!--    <string name="ButtonText">I\'m a button</string>-->
-    <string name="Switch">switch on/off</string>
-    <string name="Clickhere">click here</string>
-    <string name="Checkthisout">check this out</string>
-<!--    <string name="name">Enter name here</string>-->
-<!--    <string name="name1">enter your name here</string>-->
-<!--    <string name="app_name" translatable="false">appname</string>-->
-    <string name="lab2">Lab 2 GUI</string>
+    <!--    <string name="hello_message">Hello World!!</string>-->
+    <!--    <string name="ButtonText">I\'m a button</string>-->
+<!--    <string name="EnterYouremail">Enter Your email</string>-->
+    <string name="TakePicture">Take Picture</string>
+    <string name="EnterYourpassword">Enter Your password</string>
+    <!--    <string name="name">Enter name here</string>-->
+    <!--    <string name="name1">enter your name here</string>-->
+    <!--    <string name="app_name" translatable="false">appname</string>-->
+    <string name="Login">Login</string>
     <string name="namehere">namehere</string>
-    <string name="toast_message">Here is more information</string>
-    <string name="checkboxOn">Switch is on</string>
-    <string name="checkboxOff">Switch is off</string>
+    <string name="EnterYouremail">Enter Your email</string>
+    <string name="EnterYourName">Enter Your Name</string>
+    <string name="ProfileActivity">Profile Activity</string>
 
 </resources>

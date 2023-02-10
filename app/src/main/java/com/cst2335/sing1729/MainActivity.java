@@ -1,79 +1,30 @@
 package com.cst2335.sing1729;
-
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.ImageButton;
-import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
-
-import java.util.ResourceBundle;
-
+import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
-
-    private CheckBox cb;
-
+    private CheckBox checkBox;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        setContentView(R.layout.activity_main_constraint);
-
-        Button btn = findViewById(R.id.button_click);
-
-        btn.setOnClickListener( ibtn ->{
-
-            Toast.makeText(this, R.string.toast_message, Toast.LENGTH_LONG).show();
-        });
-//        Button btn = findViewById(R.id.button);
-        CompoundButton myCb = findViewById(R.id.checkBox);
-
-
-        myCb.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            Snackbar snackbar = Snackbar.make(findViewById(R.id.checkBox), R.string.checkboxOn, Snackbar.LENGTH_LONG);
-            Snackbar snackbar2 = Snackbar.make(findViewById(R.id.checkBox), R.string.checkboxOff, Snackbar.LENGTH_LONG);
-
+        setContentView(R.layout.lab3_activity_main);
+//        getting view of text and button bt R class
+        EditText emailEditText = findViewById(R.id.editTextTextEmailAddress);
+        Button loginButton = findViewById(R.id.button);
+//      adding a onclick listener method to perform action.
+        loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton cb, boolean isChecked) {
-
-                if(isChecked){
-
-                    snackbar.show();
-                    snackbar.setAction("undo", click -> cb.setChecked(!isChecked));
-                    snackbar.setAction("Undo", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            snackbar2.show();
-                            myCb.setChecked(false);
-                        }
-                    });
-                }
-                else{
-                    snackbar2.show();
-                    snackbar2.setAction("undo", click -> cb.setChecked(!isChecked));
-                    snackbar2.setAction("Undo", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            snackbar.show();
-                            myCb.setChecked(true);
-                        }
-                    });
-
-                }
-
+            public void onClick(View v) {
+//              passing email address to other activity.
+                String email_address = emailEditText.getText().toString();
+                Intent goToProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                goToProfile.putExtra("EMAIL", email_address);
+                startActivity(goToProfile);
             }
-
-        });
-
-
-
-
-
-
+        } );
     }
 }

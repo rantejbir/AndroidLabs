@@ -3,13 +3,13 @@
     <string name="app_name">Android Labs</string>
 <!--    <string name="hello_message">Namaskar!</string>-->
 <!--    <stringswitch name="ButtonText">hum ek button hai</stringswitch>-->
-    <string name="Switch">स्विच</string>
-    <string name="Clickhere">यहां क्लिक करें</string>
-    <string name="Checkthisout">इसकी जांच करें</string>
-    <string name="toast_message">यहाँ अधिक जानकारी है</string>
-    <string name="lab2">लैब 2 जीयूआई</string>
+<!--    <string name="EnterYouremail">स्विच</string>-->
+    <string name="TakePicture">यहां क्लिक करें</string>
+    <string name="EnterYourpassword">इसकी जांच करें</string>
+    <string name="EnterYouremail">यहाँ अधिक जानकारी है</string>
+    <string name="Login">लैब 2 जीयूआई</string>
     <string name="namehere">namehere</string>
-    <string name="checkboxOn">स्विच चालू है</string>
-    <string name="checkboxOff">स्विच ऑफ है</string>
+    <string name="EnterYourName">स्विच चालू है</string>
+    <string name="ProfileActivity">स्विच ऑफ है</string>
 
 </resources>
