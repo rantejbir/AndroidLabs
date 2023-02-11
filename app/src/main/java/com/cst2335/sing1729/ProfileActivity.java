@@ -1,13 +1,17 @@
 package com.cst2335.sing1729;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -16,6 +20,17 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ProfileActivity extends AppCompatActivity {
     private ActivityResultLauncher<Intent> myPictureTakerLauncher;
     private static final String LOGCAT_TAG = "ProfileActivity";
+    private EditText name;
+    private EditText address;
+    private TextView emailEditText;
+    private Button saveButton;
+    private Button ClearButton;
+    public static final String SHARED = "sharedPrefs";
+    public String NAME = "text";
+    public String ADDRESS = "Address";
+
+
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -51,52 +66,55 @@ public class ProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Log.e(LOGCAT_TAG, "onActivityResult method");
     }
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_activity);
 
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
-//        getting email printed at profile activity
-        EditText emailEditText = findViewById(R.id.emailAddress);
-//      using intent class to send email to other page
-
-
+        name = findViewById(R.id.Name);
+        address = findViewById(R.id.Address);
+        emailEditText = findViewById(R.id.emailAddress);
+        saveButton = findViewById(R.id.button2);
+        ClearButton = findViewById(R.id.button3);
 
         Intent intent = getIntent();
         String email = intent.getStringExtra("EMAIL");
         emailEditText.setText(email);
-        Button takePictureButton = findViewById(R.id.button2);
 
+        String name1 = sharedPreferences.getString(NAME, "");
+        String address1 = sharedPreferences.getString(ADDRESS, "");
 
+        name.setText(name1);
+        address.setText(address1);
 
-        takePictureButton.setOnClickListener(v -> dispatchTakePictureIntent());
-        myPictureTakerLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                new ActivityResultCallback<ActivityResult>() {
-                    @Override
-                    public void onActivityResult(ActivityResult result) {
-                        ImageView imgView = findViewById(R.id.imageView);
-                        if (result.getResultCode() == Activity.RESULT_OK) {
-                            Intent data = result.getData();
-                            assert data != null;
-                            Bitmap imgBitmap = (Bitmap) data.getExtras().get("data");
-                            imgView.setImageBitmap(imgBitmap);
-                        } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
-                            Log.i(LOGCAT_TAG, "User refused to capture a picture.");
-                        }
-                    }
-                }
-        );
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                editor.putString(NAME, name.getText().toString());
+                editor.putString(ADDRESS, address.getText().toString());
+
+                editor.apply();
+            }
+        });
+
+        ClearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editor.clear();
+                editor.commit();
+
+                name.setText("");
+                address.setText("");
+
+            }
+        });
     }
-
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            myPictureTakerLauncher.launch(takePictureIntent);
-        }
-    }
-
-
-
 }

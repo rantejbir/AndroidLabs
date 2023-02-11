@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Android Labs</string>
-<!--    <string name="hello_message">Namaskar!</string>-->
-<!--    <stringswitch name="ButtonText">hum ek button hai</stringswitch>-->
-<!--    <string name="EnterYouremail">स्विच</string>-->
-    <string name="TakePicture">यहां क्लिक करें</string>
+    <string name="app_name">Android Labs Lab 4</string>
+    <string name="ClearData">स्विच</string>
+    <string name="MainActivity">िच ऑफ है</string>
+    <string name="Savedata">स्विच</string>
+    <string name="Address">यहां क्लिक करें</string>
     <string name="EnterYourpassword">इसकी जांच करें</string>
     <string name="EnterYouremail">यहाँ अधिक जानकारी है</string>
-    <string name="Login">लैब 2 जीयूआई</string>
+    <string name="Login">जीयूआई</string>
     <string name="namehere">namehere</string>
     <string name="EnterYourName">स्विच चालू है</string>
     <string name="ProfileActivity">स्विच ऑफ है</string>
