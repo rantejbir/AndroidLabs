@@ -5,57 +5,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="242dp"
-        android:layout_height="63dp"
+        android:layout_width="372dp"
+        android:layout_height="64dp"
         android:layout_marginStart="176dp"
-        android:layout_marginTop="87dp"
+        android:layout_marginTop="124dp"
         android:layout_marginEnd="155dp"
+        android:gravity="center"
         android:text="@string/MainActivity"
-        android:textSize="34sp"
+        android:textColor="#3F9E42"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.523"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/Password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="101dp"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="101dp"
         android:ems="10"
         android:hint="@string/EnterYouremail"
-        android:inputType="textEmailAddress"
+        android:inputType="textPassword"
+        android:textColor="#4CAF50"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <EditText
-        android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="101dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginEnd="100dp"
-        android:ems="10"
-        android:hint="@string/EnterYourpassword"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="207dp"
         android:layout_height="38dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="104dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="100dp"
         android:text="@string/Login"
+        android:textColor="#D9CCDC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/Password"
+        app:strokeColor="#A32D2D" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
