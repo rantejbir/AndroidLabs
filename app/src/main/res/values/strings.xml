@@ -5,8 +5,8 @@
     <string name="Savedata">Save Data</string>
     <string name="Address">Address</string>
     <string name="EnterYourpassword">Enter Your password</string>
-        <string name="ClearData">Clear Data</string>
-        <string name="MainActivity">Type Your Password</string>
+    <string name="ClearData">Clear Data</string>
+    <string name="MainActivity">Type Your Password</string>
     <!--    <string name="app_name" translatable="false">appname</string>-->
     <string name="Login">Login</string>
     <string name="namehere">namehere</string>

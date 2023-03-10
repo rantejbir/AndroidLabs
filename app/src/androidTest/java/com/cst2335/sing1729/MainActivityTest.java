@@ -3,14 +3,10 @@ package com.cst2335.sing1729;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static org.hamcrest.Matchers.allOf;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,8 +29,7 @@ import org.junit.runner.RunWith;
 public class MainActivityTest {
 
     @Rule
-    public ActivityScenarioRule<MainActivity> mActivityScenarioRule =
-            new ActivityScenarioRule<>(MainActivity.class);
+    public ActivityScenarioRule<MainActivity> mActivityScenarioRule = new ActivityScenarioRule<>(MainActivity.class);
 
     @Test
     public void mainActivityTest() {
@@ -42,7 +37,7 @@ public class MainActivityTest {
         ViewInteraction appCompatEditText2 = onView(withId(R.id.Password));
         appCompatEditText2.perform(replaceText("12345"));
 
-        ViewInteraction materialButton = onView(withId(R.id.button));
+        ViewInteraction materialButton = onView(withId(R.id.recieve));
         materialButton.perform(click());
 
         ViewInteraction textView = onView(withId(R.id.textView3));
@@ -55,7 +50,7 @@ public class MainActivityTest {
         ViewInteraction appCompatEditText2 = onView(withId(R.id.Password));
         appCompatEditText2.perform(replaceText("password123#$*"));
 
-        ViewInteraction materialButton = onView(withId(R.id.button));
+        ViewInteraction materialButton = onView(withId(R.id.recieve));
         materialButton.perform(click());
 
         ViewInteraction textView = onView(withId(R.id.textView3));
@@ -67,7 +62,7 @@ public class MainActivityTest {
         ViewInteraction appCompatEditText2 = onView(withId(R.id.Password));
         appCompatEditText2.perform(replaceText("PASSWORD123#$*"));
 
-        ViewInteraction materialButton = onView(withId(R.id.button));
+        ViewInteraction materialButton = onView(withId(R.id.recieve));
         materialButton.perform(click());
 
         ViewInteraction textView = onView(withId(R.id.textView3));
@@ -79,7 +74,7 @@ public class MainActivityTest {
         ViewInteraction appCompatEditText2 = onView(withId(R.id.Password));
         appCompatEditText2.perform(replaceText("Password#$*"));
 
-        ViewInteraction materialButton = onView(withId(R.id.button));
+        ViewInteraction materialButton = onView(withId(R.id.recieve));
         materialButton.perform(click());
 
         ViewInteraction textView = onView(withId(R.id.textView3));
@@ -91,7 +86,7 @@ public class MainActivityTest {
         ViewInteraction appCompatEditText2 = onView(withId(R.id.Password));
         appCompatEditText2.perform(replaceText("Password123"));
 
-        ViewInteraction materialButton = onView(withId(R.id.button));
+        ViewInteraction materialButton = onView(withId(R.id.recieve));
         materialButton.perform(click());
 
         ViewInteraction textView = onView(withId(R.id.textView3));
@@ -103,7 +98,7 @@ public class MainActivityTest {
         ViewInteraction appCompatEditText2 = onView(withId(R.id.Password));
         appCompatEditText2.perform(replaceText("passworrrrrrrrrrrrrrrrrrrrrrd123#$*"));
 
-        ViewInteraction materialButton = onView(withId(R.id.button));
+        ViewInteraction materialButton = onView(withId(R.id.recieve));
         materialButton.perform(click());
 
         ViewInteraction textView = onView(withId(R.id.textView3));
@@ -115,7 +110,7 @@ public class MainActivityTest {
         ViewInteraction appCompatEditText2 = onView(withId(R.id.Password));
         appCompatEditText2.perform(replaceText("Password123#$*"));
 
-        ViewInteraction materialButton = onView(withId(R.id.button));
+        ViewInteraction materialButton = onView(withId(R.id.recieve));
         materialButton.perform(click());
 
         ViewInteraction textView = onView(withId(R.id.textView3));
