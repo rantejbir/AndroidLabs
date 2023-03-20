@@ -20,9 +20,9 @@
 
     <TextView
         android:id="@+id/timeText"
-        android:layout_width="110dp"
-        android:layout_height="13dp"
-        android:layout_marginStart="175dp"
+        android:layout_width="221dp"
+        android:layout_height="14dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="4dp"
         android:text="time goes here"
         android:textSize="10sp"
