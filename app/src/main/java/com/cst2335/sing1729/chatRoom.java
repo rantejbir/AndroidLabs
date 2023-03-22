@@ -19,13 +19,14 @@ import com.cst2335.sing1729.databinding.SentMessageBinding;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class chatRoom extends AppCompatActivity {
     private RecyclerView.Adapter myAdapter;
     ChatRoomViewModel chatModel ;
     ChatMessageDAO mDAO;
     ActivityChatRoomBinding binding;
-    ArrayList<ChatMessage> messages = new ArrayList<>();
+    List<ChatMessage> messages = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +34,14 @@ public class chatRoom extends AppCompatActivity {
         messages = chatModel.messages.getValue();
         MessageDatabase db = MessageDatabase.getInstance(this);
         mDAO = db.chatMessageDAO();
+        new Thread(() -> {
+            messages.addAll( mDAO.getAllMessages());
+        }).start();
+//        loadMessages();
 
         if(messages == null)
         {
-            chatModel.messages.postValue( messages = new ArrayList<ChatMessage>());
+            chatModel.messages.postValue( messages = new ArrayList<>());
         }
         binding = ActivityChatRoomBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -46,6 +51,12 @@ public class chatRoom extends AppCompatActivity {
             String currentDateandTime = sdf.format(new Date());
             ChatMessage chatMessage = new ChatMessage(message,currentDateandTime,true);
             messages.add(chatMessage);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                     mDAO.insertMessage(chatMessage) ;
+                }
+            }).start();
             myAdapter.notifyItemInserted(messages.size()-1);
             binding.textInput.setText("");
         });
@@ -55,6 +66,12 @@ public class chatRoom extends AppCompatActivity {
             String currentDateandTime = sdf.format(new Date());
             ChatMessage chatMessage = new ChatMessage(message, currentDateandTime, false);
             messages.add(chatMessage);
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    mDAO.insertMessage(chatMessage) ;
+                }
+            }).start();
             myAdapter.notifyItemInserted(messages.size()-1);
             binding.textInput.setText("");
         });
@@ -137,10 +154,18 @@ class MyRowHolder extends RecyclerView.ViewHolder {
                     })
 
                     .setPositiveButton("Yes", (dialog, cl) -> {
+                        ChatMessage chatMessage = messages.get(AdapterPosition);
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mDAO.DeleteMessage(chatMessage); ;
+                            }
+                        }).start();
 
                         //this will delete the message row, and update the list
                         messages.remove(AdapterPosition);
                         myAdapter.notifyItemRemoved(AdapterPosition);
+
                     })
                     .create().show();
 

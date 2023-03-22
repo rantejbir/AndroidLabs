@@ -2,7 +2,9 @@ package com.cst2335.sing1729;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import java.util.ArrayList;
+
+import java.util.List;
+
 public class ChatRoomViewModel extends ViewModel {
-    public MutableLiveData<ArrayList<ChatMessage>> messages = new MutableLiveData< >();
+    public MutableLiveData<List<ChatMessage>> messages = new MutableLiveData<>();
 }

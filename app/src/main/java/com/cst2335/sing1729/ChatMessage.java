@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-@Entity
+@Entity(tableName = "ChatMessage")
 public class ChatMessage {
     public boolean mCleared;
     @ColumnInfo(name = "message")
